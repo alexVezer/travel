@@ -10,13 +10,7 @@ $darkTxt: #171918;
   align-items: center;
   justify-content: center;
   flex-direction: $direction;
-  flex-wrap: wrap;
-  white-space: nowrap;
-
-}
-
-@mixin lightText {
-  
+  white-space: pre-wrap;
 
 }
 
@@ -30,7 +24,7 @@ body, footer, a {
 
 .logo {
   position: absolute;
-  width:35%;
+  width:30%;
   left:0;
   top:0;
 }
@@ -51,13 +45,13 @@ section{
 }
 #SectionA{
   position: relative;
-  height: 100vh;
-  @include flexCenter(column);
-
+  
+  
 }
 .intro{
-  padding: 10rem;
-
+  width:100%;
+  height: 100vh;
+  @include flexCenter(column);
   text-align: center;
   h1{
     font-size: 2em;
@@ -76,28 +70,36 @@ section{
   display: inline-block;
   max-width: 25%;
   text-align: center;
-}
-.card img{
+
+ img{
   max-width: 100%;
   max-height: 200px;
+  min-height: 200px;
   margin: 30px 0px;
   border:3px solid  $darkBgd;
 }
+  .button{
+  width: 90%;
+  display: block;
 
+  }
+}
 .button {
   background-color: $darkBgd;
   color: $lightTxt;
   border: 2px solid $lightBgd;
-  padding: 1em;
+  padding: 0.7em;
   border-radius: 32px;
-  
+  white-space: pre;
   &:hover {
     background-color: $lightBgd;
   color:$darkTxt;
   border: 2px solid $darkBgd;
+  text-align: center;
 
   }
 }
+
 
 .shadow {
   display:block;
@@ -119,4 +121,65 @@ footer a{
   color: $lightTxt;
   text-decoration: none;
   background-color: $darkBgd;
+}
+
+@media screen and (max-width:1040px) {
+.card {
+  max-width: 35%;
+  .button{
+    width: 90%;
+}
+}
+}
+@media screen and (max-width:900px) {
+  .logo {
+    width: 55%;
+    
+  }
+  
+  nav {
+    padding-right: 1em;
+    
+    ul >  li {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    padding: 0.5em;
+  
+    
+
+  }    
+}
+
+.intro {
+  height: 75vh;
+}
+  .container{
+  @include flexCenter(column);
+ 
+  .card {
+        max-width: 60%;
+      
+        img {
+          width:100%;
+          max-height:300px;
+        }
+        
+    }
+
+  }
+}
+
+@media screen and (max-width:440px) {
+  .logo {
+    width: 95%;   
+  }
+  nav {
+   padding-right: 0;
+ }
+  .card {
+    min-width: 250px;
+
+  }
+  
 }
