@@ -83,6 +83,9 @@ section{
   display: block;
 
   }
+  &:last-of-type {
+    margin-bottom: 2em;
+  }
 }
 .button {
   background-color: $darkBgd;
@@ -145,7 +148,9 @@ footer a{
     text-align: right;
     font-weight: bold;
     padding: 0.5em;
-  
+  &:last-of-type {
+    text-align: center;
+  }
     
 
   }    
@@ -163,6 +168,7 @@ footer a{
         img {
           width:100%;
           max-height:300px;
+          
         }
         
     }
@@ -172,14 +178,29 @@ footer a{
 
 @media screen and (max-width:440px) {
   .logo {
-    width: 95%;   
+    width: 95%;
+    z-index: -1;  
+    opacity: 0.8; 
   }
   nav {
    padding-right: 0;
+   overflow: hidden;
+   position: relative;
+  li:not(:last-of-type){
+    display: none;
+    
+  }
  }
+  .intro >h1, .intro>h4 {
+    text-shadow: #eef0ef 3px 3px;
+    
+  }
   .card {
     min-width: 250px;
-
+    img {
+      margin: 0px;
+    }
+    
   }
   
 }
